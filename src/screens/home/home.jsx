@@ -14,7 +14,7 @@ const Home = () => {
         </View>
 
         <View>
-            
+            //teste
         </View>
     </View>
 }

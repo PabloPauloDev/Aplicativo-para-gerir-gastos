@@ -1,6 +1,7 @@
 import { Image, ScrollView, ScrollViewBase, Text, View } from "react-native"
 import icons from "../../constants/icons";
 import {styles} from "./home.style"
+import Despesa from "../../components/despesas/despesa.jsx";
 
 const Home = () => {
     return <View style={styles.container}>
@@ -12,9 +13,9 @@ const Home = () => {
             </View>
             <Image source={icons.money} style={styles.money}/>
         </View>
-
         <View>
-            //teste
+            <Text style={styles.dashboardTitulo}>Despesas</Text>
+            <Despesa />
         </View>
     </View>
 }

@@ -33,7 +33,14 @@ const styles = {
     money: {
         width: 35,
         height: 60
-    }
+    },
+    dashboardTitulo: {
+        fontSize: FONT_SIZE.sm,
+        color: COLORS.dark_grey,
+        marginTop: 15,
+        fontWeight: "bold",
+        TextAlign: "left"
+    },
 }
 
 export { styles }

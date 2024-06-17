@@ -16,6 +16,10 @@ const Home = () => {
         <View>
             <Text style={styles.dashboardTitulo}>Despesas</Text>
             <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
         </View>
     </View>
 }

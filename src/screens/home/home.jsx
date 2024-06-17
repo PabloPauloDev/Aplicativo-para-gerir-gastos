@@ -13,14 +13,49 @@ const Home = () => {
             </View>
             <Image source={icons.money} style={styles.money}/>
         </View>
-        <View>
+        <ScrollView>
             <Text style={styles.dashboardTitulo}>Despesas</Text>
             <Despesa />
             <Despesa />
             <Despesa />
             <Despesa />
             <Despesa />
-        </View>
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+            <Despesa />
+        </ScrollView>
     </View>
 }
 

@@ -7,8 +7,7 @@ const styles = {
         gap: 10,
         backgroundColor: '#fff',
         marginTop: 50,
-        margin: 10,
-        borderWidth: 4
+        margin: 20,
     },
     logo: {
         width: 100,

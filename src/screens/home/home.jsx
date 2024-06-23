@@ -2,23 +2,36 @@ import { Image, ScrollView, ScrollViewBase, Text, TouchableOpacity, View } from 
 import icons from "../../constants/icons";
 import {styles} from "./home.style"
 import Despesa from "../../components/despesas/despesa.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Home = () => {
     const [total, setTotal] = useState(0);
     const [despesas, setDespesas] = useState([]);
 
     const dados = [{id:1, icon:icons.mercado, categoria:'Mercado', descricao:'Compras do mes', valor:100},
-    {id:2, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100}]
+    {id:3, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    {id:4, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    {id:5, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    {id:6, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    {id:7, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    {id:8, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100}]
 
     const OpenDespesa = (id) =>{
         console.log('Cadastrar Despesa...')
     }
 
     const ListarDespesas = () => {
-
+        let soma = 0
+        for (var i=0; i<dados.length; i++) {
+            soma += dados[i].valor;
+        }
+        setTotal(soma)
+        setDespesas(dados)
     }
 
+    useEffect(() => {
+        ListarDespesas()
+    }, [])
     return <View style={styles.container}>
         <Image source={icons.logo} style={styles.logo} />
         <View style={styles.dashboard}>

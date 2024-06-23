@@ -1,7 +1,21 @@
 import { Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { styles } from './cad-desp.style.js'
+import { Picker } from '@react-native-picker/picker'
+import { useState } from 'react'
 
 const CadDespesa = () => {
+    const [id, setId] = useState(0);
+    const [valor, setValor] = useState(0);
+    const [descricao, setDescricao] = useState('');
+    const [categoria, setCategoria] = useState('');
+
+    const handleSalvar = () => {
+        
+    }
+    const handleCancelar = () => {
+        
+    }
+
     return <View style = {styles.container}>
         
         <View style={styles.containerField}>
@@ -16,7 +30,19 @@ const CadDespesa = () => {
 
         <View style={styles.containerField}>
             <Text style={styles.inputLabel}>Categoria</Text>
-            <TextInput placeholder='Aluguel' style={styles.inputText} defaultValue=''></TextInput>
+            <View style={styles.inputPicker}>
+                <Picker 
+                selectedValue={categoria}
+                onValueChange={(itemValue, itemIndex) => {
+                    setCategoria(itemValue)
+                }}>
+                    <Picker.Item label='Casa' value='Casa' />
+                    <Picker.Item label='Educação' value='Educação' />
+                    <Picker.Item label='Lazer' value='Lazer' />
+                    <Picker.Item label='Moto' value='Moto' />
+                    <Picker.Item label='Viagem' value='Viagem' />
+                </Picker>
+            </View>
         </View>
 
         <View style={styles.containerBtn}>

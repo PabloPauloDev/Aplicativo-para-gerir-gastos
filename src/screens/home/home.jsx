@@ -41,8 +41,10 @@ const Home = () => {
             </View>
             <Image source={icons.money} style={styles.money}/>
         </View>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.titulo}>
             <Text style={styles.dashboardTitulo}>Despesas</Text>
+        </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
             {
                 despesas.map((desp)=>{
                     return <Despesa key={desp.id}

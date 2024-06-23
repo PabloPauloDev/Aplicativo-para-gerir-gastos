@@ -49,6 +49,9 @@ const styles = {
     btnAdd: {
         position: 'absolute',
         bottom: 12
+    },
+    titulo: {
+        width: '100%'
     }
 }
 

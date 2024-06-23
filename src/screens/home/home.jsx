@@ -1,61 +1,49 @@
-import { Image, ScrollView, ScrollViewBase, Text, View } from "react-native"
+import { Image, ScrollView, ScrollViewBase, Text, TouchableOpacity, View } from "react-native"
 import icons from "../../constants/icons";
 import {styles} from "./home.style"
 import Despesa from "../../components/despesas/despesa.jsx";
+import { useState } from "react";
 
 const Home = () => {
+    const [total, setTotal] = useState(0);
+    const [despesas, setDespesas] = useState([]);
+
+    const dados = [{id:1, icon:icons.mercado, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    {id:2, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100}]
+
+    const OpenDespesa = (id) =>{
+        console.log('Cadastrar Despesa...')
+    }
+
+    const ListarDespesas = () => {
+
+    }
+
     return <View style={styles.container}>
         <Image source={icons.logo} style={styles.logo} />
         <View style={styles.dashboard}>
             <View>
-            <Text style={styles.dashboardValor}>R$ 5.000,00</Text>
+            <Text style={styles.dashboardValor}>R$ {total.toLocaleString('pt-br', {minimumFractionDigits: 2})}</Text>
             <Text style={styles.dashboardText}>Total de Gastos</Text>          
             </View>
             <Image source={icons.money} style={styles.money}/>
         </View>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
             <Text style={styles.dashboardTitulo}>Despesas</Text>
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
-            <Despesa />
+            {
+                despesas.map((desp)=>{
+                    return <Despesa key={desp.id}
+                            id={desp.id}
+                            icon={desp.icon}
+                            categoria={desp.categoria}
+                            descricao={desp.descricao}
+                            valor={desp.valor}/>
+                })
+            }
         </ScrollView>
+        <TouchableOpacity style={styles.btnAdd} onPress={() => OpenDespesa(0)}>
+            <Image source={icons.add} style={styles.btnAddImg} />
+        </TouchableOpacity>
     </View>
 }
 

@@ -2,7 +2,9 @@ import {COLORS, FONT_SIZE} from "../../constants/themes.js"
 
 const styles = {
     container: {
+        height: "92%",
         alignItems: 'center',
+        gap: 10,
         backgroundColor: '#fff',
         marginTop: 50,
         margin: 10,
@@ -41,6 +43,14 @@ const styles = {
         fontWeight: "bold",
         TextAlign: "left"
     },
+    btnAddImg: {
+        width:50,
+        height: 51
+    },
+    btnAdd: {
+        position: 'absolute',
+        bottom: 12
+    }
 }
 
 export { styles }

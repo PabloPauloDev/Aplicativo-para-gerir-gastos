@@ -4,7 +4,7 @@ import {styles} from "./home.style"
 import Despesa from "../../components/despesas/despesa.jsx";
 import { useEffect, useState } from "react";
 
-const Home = () => {
+const Home = (props) => {
     const [total, setTotal] = useState(0);
     const [despesas, setDespesas] = useState([]);
 
@@ -17,7 +17,7 @@ const Home = () => {
     {id:8, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100}]
 
     const OpenDespesa = (id) =>{
-        console.log('Cadastrar Despesa...')
+        props.navigation.navigate('CadDespesa')
     }
 
     const ListarDespesas = () => {

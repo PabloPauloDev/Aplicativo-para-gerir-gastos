@@ -2,14 +2,15 @@ import {COLORS, FONT_SIZE} from "../../constants/themes.js"
 
 const styles = {
     container: {
-        height: "92%",
+        padding: 15,
+        height: "100%",
         alignItems: 'center',
         gap: 10,
-        backgroundColor: '#fff',
-        marginTop: 50,
-        margin: 20,
+        backgroundColor: '#ffffff',
+
     },
     logo: {
+        marginTop: 30,
         width: 100,
         height: 30,
     },
@@ -48,11 +49,31 @@ const styles = {
     },
     btnAdd: {
         position: 'absolute',
-        bottom: 12
+        bottom: 30
     },
     titulo: {
         width: '100%'
-    }
+    },
+    rowBack: {
+        alignItems: 'center',
+        backgroundColor: '#DDD',
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        paddingLeft: 15,
+    },
+    backRightBtn: {
+        alignItems: 'center',
+        bottom: 0,
+        justifyContent: 'center',
+        position: 'absolute',
+        top: 0,
+        width: 75,
+    },
+    backRightBtnRight: {
+        backgroundColor: 'red',
+        right: 0,
+    },
 }
 
 export { styles }

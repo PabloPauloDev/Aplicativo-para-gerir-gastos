@@ -10,8 +10,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen name='Home' component={Home} options={{headerShown: false}}/>
-        <Stack.Screen name='CadDespesa' component={CadDespesa} options={{}} />
+        <Stack.Screen name='CadDespesa' component={CadDespesa} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
+    // <Home />
   );
 }

@@ -1,4 +1,5 @@
 import { Image, ScrollView, ScrollViewBase, Text, TouchableOpacity, View } from "react-native"
+import { SwipeListView } from "react-native-swipe-list-view";
 import icons from "../../constants/icons";
 import {styles} from "./home.style"
 import Despesa from "../../components/despesas/despesa.jsx";
@@ -14,11 +15,10 @@ const Home = (props) => {
     {id:5, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
     {id:6, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
     {id:7, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
-    {id:8, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100}]
-
-    const OpenDespesa = (id) =>{
-        props.navigation.navigate('CadDespesa')
-    }
+    {id:8, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    {id:9, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    {id:10, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    {id:11, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100}]
 
     const ListarDespesas = () => {
         let soma = 0
@@ -28,6 +28,36 @@ const Home = (props) => {
         setTotal(soma)
         setDespesas(dados)
     }
+
+    const OpenCadDespesa = () =>{
+        props.navigation.navigate('CadDespesa')
+    }
+
+    const handleExcluir = () =>{
+    }
+
+    const renderItem = data => (
+        <Despesa
+            key={data.item.id}
+            id={data.item.id}
+            icon={data.item.icon}
+            categoria={data.item.categoria}
+            descricao={data.item.descricao}
+            valor={data.item.valor}
+        />
+    );
+
+    const renderHiddenItem = (data, rowMap) => (
+        <View style={styles.rowBack}>
+            <TouchableOpacity
+                style={[styles.backRightBtn, styles.backRightBtnRight]}
+                onPress={() => handleExcluir(data.item.id)}
+            >
+                <Text style={styles.backTextWhite}></Text>
+            </TouchableOpacity>
+        </View>
+    );
+
 
     useEffect(() => {
         ListarDespesas()
@@ -44,7 +74,15 @@ const Home = (props) => {
         <View style={styles.titulo}>
             <Text style={styles.dashboardTitulo}>Despesas</Text>
         </View>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <SwipeListView
+                showsVerticalScrollIndicator={false}
+                data={despesas}
+                renderItem={renderItem}
+                renderHiddenItem={renderHiddenItem}
+                rightOpenValue={-75}
+                disableRightSwipe
+            />
+        {/* <ScrollView showsVerticalScrollIndicator={false}>
             {
                 despesas.map((desp)=>{
                     return <Despesa key={desp.id}
@@ -55,8 +93,8 @@ const Home = (props) => {
                             valor={desp.valor}/>
                 })
             }
-        </ScrollView>
-        <TouchableOpacity style={styles.btnAdd} onPress={() => OpenDespesa(0)}>
+        </ScrollView> */}
+        <TouchableOpacity style={styles.btnAdd} onPress={() => OpenCadDespesa(0)}>
             <Image source={icons.add} style={styles.btnAddImg} />
         </TouchableOpacity>
     </View>

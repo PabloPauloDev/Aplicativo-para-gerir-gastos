@@ -2,12 +2,13 @@ import {COLORS, FONT_SIZE} from "../../constants/themes.js"
 
 const styles = {
     container: {
-        height: "85%",
+        height: '100%',
+        padding: 20,
         justifyContent: 'space-between',
-        marginTop: 100,
-        margin: 20,
+        backgroundColor: '#f8f8f8'
     },
     containerField: {
+        marginTop: 80,
         marginBottom: 40
     },
     inputLabel: {

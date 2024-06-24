@@ -3,17 +3,17 @@ import { styles } from './cad-desp.style.js'
 import { Picker } from '@react-native-picker/picker'
 import { useState } from 'react'
 
-const CadDespesa = () => {
+const CadDespesa = (props) => {
     const [id, setId] = useState(0);
     const [valor, setValor] = useState(0);
     const [descricao, setDescricao] = useState('');
     const [categoria, setCategoria] = useState('');
 
     const handleSalvar = () => {
-        
+        props.navigation.navigate('Home')
     }
     const handleCancelar = () => {
-        
+        props.navigation.navigate('Home')
     }
 
     return <View style = {styles.container}>
@@ -46,10 +46,10 @@ const CadDespesa = () => {
         </View>
 
         <View style={styles.containerBtn}>
-            <TouchableOpacity style={styles.btnCancelar}>
+            <TouchableOpacity style={styles.btnCancelar} onPress={handleCancelar}>
                 <Text style={styles.textCancelar}>Cancelar</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.btnSalvar}>
+            <TouchableOpacity style={styles.btnSalvar} onPress={handleSalvar}>
                 <Text style={styles.textSalvar}>Salvar</Text>
             </TouchableOpacity>
         </View>

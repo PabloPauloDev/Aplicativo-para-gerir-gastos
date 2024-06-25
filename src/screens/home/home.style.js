@@ -56,11 +56,9 @@ const styles = {
     },
     rowBack: {
         alignItems: 'center',
-        backgroundColor: '#DDD',
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-end',
-        paddingLeft: 15,
+        justifyContent: 'flex-end'
     },
     backRightBtn: {
         alignItems: 'center',
@@ -68,12 +66,17 @@ const styles = {
         justifyContent: 'center',
         position: 'absolute',
         top: 0,
-        width: 75,
+        width: 70,
+        borderRadius: 11,
+        marginTop: 10
     },
     backRightBtnRight: {
         backgroundColor: 'red',
         right: 0,
     },
+    delete: {
+        width: 20
+    }
 }
 
 export { styles }

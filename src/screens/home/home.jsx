@@ -53,7 +53,7 @@ const Home = (props) => {
                 style={[styles.backRightBtn, styles.backRightBtnRight]}
                 onPress={() => handleExcluir(data.item.id)}
             >
-                <Text style={styles.backTextWhite}></Text>
+                <Image source={icons.remove} style={styles.delete}/>
             </TouchableOpacity>
         </View>
     );

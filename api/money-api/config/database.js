@@ -1,8 +1,8 @@
 const config = {
-    host: 'localhost',
-    user: 'XXXX',
-    password: '123456',
-    database: 'XXXX'
+    host: '192.168.31.100',
+    user: 'moneyuser',
+    password: '',
+    database: 'money'
 }
 
 export default { config }

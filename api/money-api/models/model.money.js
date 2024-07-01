@@ -5,6 +5,7 @@ const Listar = () => {
     const db = mysql.createConnection(dbConfig)
     db.connect((err) => {
         if (err) throw err
+        console.log('Conectado ao banco de dados MySQL!')
     })
     db.end((err) => {
         if (err) throw err

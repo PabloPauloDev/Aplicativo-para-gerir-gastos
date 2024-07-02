@@ -1,17 +1,18 @@
 import modelMoney from "../models/model.money.js"
 
 const Listar = (req, res) => {
-    modelMoney.Listar((err, result))
-    if (err) {
-        console.log(err)
-        res.status(400).send('Deu Ruim')
-    } else {
-        res.status(200).send('Deu bom')
-    }
+    modelMoney.Listar((err, result) => {
+        if (err) {
+            console.log(err)
+            res.status(400).send('Deu Ruim')
+        } else {
+            res.status(200).json(result)
+        }
+    })
 }
 
 const Inserir = (req, res) => {
-    modelMoney.Inserir((err, result))
+    modelMoney.Inserir(req.query, (err, result))
     if (err) {
         console.log(err)
         res.status(400).send('Deu Ruim')
@@ -21,7 +22,7 @@ const Inserir = (req, res) => {
 }
 
 const Editar = (req, res) => {
-    modelMoney.Editar((err, result))
+    modelMoney.Editar(req.query, (err, result))
     if (err) {
         console.log(err)
         res.status(400).send('Deu Ruim')
@@ -31,7 +32,7 @@ const Editar = (req, res) => {
 }
 
 const Deletar = (req, res) => {
-    modelMoney.Apagar((err, result))
+    modelMoney.Apagar(req.query, (err, result))
     if (err) {
         console.log(err)
         res.status(400).send('Deu Ruim')

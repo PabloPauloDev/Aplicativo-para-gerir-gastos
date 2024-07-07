@@ -2,6 +2,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator} from '@react-navigation/native-stack'
 import Home from './src/screens/home/home.jsx';
 import CadDespesa from './src/screens/cad-desp/cad-desp.jsx'
+import { configDotenv } from 'dotenv';
 
 const Stack = createNativeStackNavigator();
 

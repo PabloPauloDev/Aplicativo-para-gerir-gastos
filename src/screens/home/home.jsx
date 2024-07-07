@@ -4,21 +4,23 @@ import icons from "../../constants/icons";
 import {styles} from "./home.style"
 import Despesa from "../../components/despesas/despesa.jsx";
 import { useEffect, useState } from "react";
+import api from "../../api.js"
 
 const Home = (props) => {
     const [total, setTotal] = useState(0);
     const [despesas, setDespesas] = useState([]);
+    const [dados, setDados] = useState([])
 
-    const dados = [{id:1, icon:icons.mercado, categoria:'Mercado', descricao:'Compras do mes', valor:100},
-    {id:3, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
-    {id:4, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
-    {id:5, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
-    {id:6, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
-    {id:7, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
-    {id:8, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
-    {id:9, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
-    {id:10, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
-    {id:11, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100}]
+    //const dados = [{id:1, icon:icons.mercado, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    //{id:3, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    //{id:4, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    //{id:5, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    //{id:6, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    //{id:7, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    //{id:8, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    //{id:9, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    //{id:10, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
+    //{id:11, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100}]
 
     const ListarDespesas = () => {
         let soma = 0

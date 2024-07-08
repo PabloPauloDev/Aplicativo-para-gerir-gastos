@@ -12,33 +12,36 @@ const Listar = (req, res) => {
 }
 
 const Inserir = (req, res) => {
-    modelMoney.Inserir(req.query, (err, result))
-    if (err) {
-        console.log(err)
-        res.status(400).send('Deu Ruim')
-    } else {
-        res.status(200).send('Deu bom')
-    }
+    modelMoney.Inserir(req.query, (err, result) => {
+        if (err) {
+            console.log(err)
+            res.status(400).send('Deu Ruim')
+        } else {
+            res.status(200).send('Deu bom')
+        }
+    })
 }
 
 const Editar = (req, res) => {
-    modelMoney.Editar(req.query, (err, result))
-    if (err) {
-        console.log(err)
-        res.status(400).send('Deu Ruim')
-    } else {
-        res.status(200).send('Deu bom')
-    }
+    modelMoney.Editar(req.query, (err, result) => {
+        if (err) {
+            console.log(err)
+            res.status(400).send('Deu Ruim')
+        } else {
+            res.status(200).send('Deu bom')
+        }
+    })
 }
 
 const Deletar = (req, res) => {
-    modelMoney.Apagar(req.query, (err, result))
-    if (err) {
-        console.log(err)
-        res.status(400).send('Deu Ruim')
-    } else {
-        res.status(200).send('Deu bom')
-    }
+    modelMoney.Apagar(req.query, (err, result) => {
+        if (err) {
+            console.log(err)
+            res.status(400).send('Deu Ruim')
+        } else {
+            res.status(200).send('Deu bom')
+        }
+    })
 }
 
 export default { Listar, Inserir, Editar, Deletar }

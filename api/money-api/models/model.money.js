@@ -17,13 +17,14 @@ const Listar = (callback) => {
 }
 
 const Inserir = (data, callback) => {
+    console.log(data)
     const db = mysql.createConnection(config)
     db.connect((err) => {
         if (err) throw err
         const sql = 'INSERT INTO gastos (assunto, descricao, valor) VALUES (?, ?, ?)'
         db.query(sql, [data.assunto, data.descricao, data.valor], (err, results) => {
             if (err) throw err
-            console.log('Inserted:', results)
+            callback(null, results)
             db.end((err) => {
                 if (err) throw err
             })
@@ -53,7 +54,7 @@ const Apagar = (data, callback) => {
         const sql = 'DELETE FROM gastos WHERE id = ?'
         db.query(sql, [data.id], (err, results) => {
             if (err) throw err
-            console.log('Deleted:', results)
+            callback(null, results)
             db.end((err) => {
                 if (err) throw err
             })

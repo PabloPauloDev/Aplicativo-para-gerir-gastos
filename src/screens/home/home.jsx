@@ -4,12 +4,12 @@ import icons from "../../constants/icons";
 import {styles} from "./home.style"
 import Despesa from "../../components/despesas/despesa.jsx";
 import { useEffect, useState } from "react";
-import api from "../../api.js"
+import api from "../../services/api.js"
 
 const Home = (props) => {
     const [total, setTotal] = useState(0);
     const [despesas, setDespesas] = useState([]);
-    const [dados, setDados] = useState([])
+    const [dados, setDados] = useState([]);
 
     //const dados = [{id:1, icon:icons.mercado, categoria:'Mercado', descricao:'Compras do mes', valor:100},
     //{id:3, icon:icons.carro, categoria:'Mercado', descricao:'Compras do mes', valor:100},
@@ -35,15 +35,25 @@ const Home = (props) => {
         props.navigation.navigate('CadDespesa')
     }
 
-    const handleExcluir = () =>{
+    const handleExcluir = (id) =>{
+        console.log(id)
+        api.delete('/money/deletar', {
+            params: {
+                id: id
+            }
+        }).then(response =>{
+            setDados(prevDados => prevDados.filter(despesa => despesa.id !== id));
+        }).catch(error => {
+            console.error('Erro ao excluir despesa:', error);
+        });
     }
 
     const renderItem = data => (
         <Despesa
             key={data.item.id}
             id={data.item.id}
-            icon={data.item.icon}
-            categoria={data.item.categoria}
+            icon={icons[data.item.assunto]}
+            categoria={data.item.assunto}
             descricao={data.item.descricao}
             valor={data.item.valor}
         />
@@ -59,7 +69,16 @@ const Home = (props) => {
             </TouchableOpacity>
         </View>
     );
-
+    
+    useEffect(() => {
+        api.get('/money/listar')
+            .then(function (response) {
+                setDados(response.data)
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    }, [])
 
     useEffect(() => {
         ListarDespesas()
@@ -78,7 +97,7 @@ const Home = (props) => {
         </View>
         <SwipeListView
                 showsVerticalScrollIndicator={false}
-                data={despesas}
+                data={dados}
                 renderItem={renderItem}
                 renderHiddenItem={renderHiddenItem}
                 rightOpenValue={-75}

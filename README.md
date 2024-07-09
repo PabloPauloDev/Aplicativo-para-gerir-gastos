@@ -26,8 +26,31 @@ Expo: Uma plataforma simples que me permitiu um desenvolvimento ágil, testes fa
 
 ## Funcionalidades
 
-### Verificar despesas já cadastradas
+### Verificar despesas ----------------------- Inclusão de despesas ------------------- Exclusão de despesas
+<img src="assets/ListarGif.gif" width="200" height="auto">------------------------<img src="assets/CadastrarGif.gif" width="200" height="auto">------------------------<img src="assets/DeletarGif.gif" width="200" height="auto">
 
-### Inclusão de novas despesas
+## Como executar
 
-### Exclusão de despesas
+### Requisitos: 
+
+- Banco de dados na maquina
+- NodeJs
+- Expo instalado no dispositivo
+
+### Passo a passo:
+
+- Clone o repositório
+
+- Use o comando DDL para criar seu próprio banco
+
+- Use o seu env para trocar as credenciais
+
+- Inicie a api pelo index.js
+
+- Inicie o projeto usando o comando npm start
+
+- Abra o seu expo e aponte a camera para o qrcode
+
+# Considerações finais
+
+Projeto interessante para entender os princípios de react native de uma forma prática e completa, também foi interessante o uso de padronização de cores para a construção de uma identidade visual ao aplicativo e praticidade na hora de codar ou dar manutenção, agradeço a todos que leram até aqui, muito obrigado pelo apoio <img src="https://media.giphy.com/media/LnQjpWaON8nhr21vNW/giphy.gif" width="60">

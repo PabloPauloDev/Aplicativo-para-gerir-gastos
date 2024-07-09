@@ -1,47 +1,66 @@
-import modelMoney from "../models/model.money.js"
+import modelMoney from "../models/model.money.js";
 
 const Listar = (req, res) => {
     modelMoney.Listar((err, result) => {
         if (err) {
-            console.log(err)
-            res.status(400).send('Deu Ruim')
+            console.log(err);
+            res.status(400).send('Deu Ruim');
         } else {
-            res.status(200).json(result)
+            res.status(200).json(result);
         }
-    })
-}
+    });
+};
 
 const Inserir = (req, res) => {
-    modelMoney.Inserir(req.query, (err, result) => {
+    const { assunto, descricao, valor } = req.body;
+    if (!assunto || !descricao || !valor) {
+        res.status(400).send('Dados incompletos');
+        return;
+    }
+
+    modelMoney.Inserir({ assunto, descricao, valor }, (err, result) => {
         if (err) {
-            console.log(err)
-            res.status(400).send('Deu Ruim')
+            console.log(err);
+            res.status(400).send('Deu Ruim');
         } else {
-            res.status(200).send('Deu bom')
+            res.status(200).send('Deu bom');
         }
-    })
-}
+    });
+};
 
 const Editar = (req, res) => {
-    modelMoney.Editar(req.query, (err, result) => {
+    const { id, assunto, descricao, valor } = req.body;
+    if (!id || !assunto || !descricao || !valor) {
+        res.status(400).send('Dados incompletos');
+        return;
+    }
+
+    modelMoney.Editar({ id, assunto, descricao, valor }, (err, result) => {
         if (err) {
-            console.log(err)
-            res.status(400).send('Deu Ruim')
+            console.log(err);
+            res.status(400).send('Deu Ruim');
         } else {
-            res.status(200).send('Deu bom')
+            res.status(200).send('Deu bom');
         }
-    })
-}
+    });
+};
 
 const Deletar = (req, res) => {
-    modelMoney.Apagar(req.query, (err, result) => {
-        if (err) {
-            console.log(err)
-            res.status(400).send('Deu Ruim')
-        } else {
-            res.status(200).send('Deu bom')
-        }
-    })
-}
+    const { id } = req.body;
+    if (!id) {
+        res.status(400).send('Dados incompletos');
+        return;
+    }
 
-export default { Listar, Inserir, Editar, Deletar }
+    modelMoney.Apagar({ id }, (err, result) => {
+        if (err) {
+            console.log(err);
+            res.status(400).send('Deu Ruim');
+        } else {
+            res.status(200).send('Deu bom');
+        }
+    });
+};
+
+export default { Listar, Inserir, Editar, Deletar };
+

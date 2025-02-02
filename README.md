@@ -26,14 +26,19 @@ Expo: Uma plataforma simples que me permitiu um desenvolvimento ágil, testes fa
 
 ## Funcionalidades
 
-### Verificar despesas
-<img src="assets/ListarGif.gif" width="200" height="auto">
+<table>
+  <tr>
+    <th>Verificar despesas</th>
+    <th>Inclusão de despesas</th>
+    <th>Exclusão de despesas</th>
+  </tr>
+  <tr>
+    <td><img src="assets/ListarGif.gif" width="200" height="auto"></td>
+    <td><img src="assets/CadastrarGif.gif" width="200" height="auto"></td>
+    <td><img src="assets/DeletarGif.gif" width="200" height="auto"></td>
+  </tr>
+</table>
 
-### Inclusão de despesas 
-<img src="assets/CadastrarGif.gif" width="200" height="auto">
-
-### Exclusão de despesas
-<img src="assets/DeletarGif.gif" width="200" height="auto">
 
 ## Como executar
 
